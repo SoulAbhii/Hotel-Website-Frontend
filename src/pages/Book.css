@@ -1,0 +1,194 @@
+.Book-page nav{
+    background-color: rgb(51, 51, 51);
+    
+}/* Book.css */
+
+/* General styles */
+.book-page {
+    font-family: Arial, sans-serif;
+  object-fit: cover;
+    background: url('../asset/Nature\ Stay.jpg');
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    color: orangered;
+}
+
+.page-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.notification {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    opacity: 0.8;
+}
+
+.total-cost {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.total-cost h5 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.total-cost p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.room-selection {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.booking-summary {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+/* Specific styles */
+.book-page nav {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.book-page nav h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.book-page nav p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* Date Picker Styles */
+.date-picker-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; /* Adjust alignment as needed */
+}
+
+.date-picker-col {
+    flex: 1;
+}
+
+.react-datepicker {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.react-datepicker__header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.react-datepicker__current-month {
+    font-size: 18px;
+}
+
+.react-datepicker__day-names {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.react-datepicker__day-name {
+    width: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+.react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #007bff;
+    color: white;
+}

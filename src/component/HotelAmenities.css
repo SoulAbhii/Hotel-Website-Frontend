@@ -1,0 +1,30 @@
+/* HotelAmenities.css */
+
+.amenities-container {
+  text-align: center; /* Center align content */
+  padding: 20px;
+}
+
+.amenities-heading {
+  font-size: 3rem; /* Increase heading font size for emphasis */
+
+}
+
+.amenities-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+ 
+}
+
+.icon{
+  font-size: 100px;
+  transition: transform 0.8s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Scale the icon to 1.1 times on hover */
+}
+

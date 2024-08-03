@@ -1,0 +1,196 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.video-container {
+  position: relative;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;/* Ensure the navbar is above the video */
+}
+
+.coverColor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.275); 
+}
+
+.gallery-item {
+  flex: 1 0 300px;
+  height: 300px;
+  overflow: hidden; /* Ensure the image does not overflow */
+  position: relative;
+  border-radius: 10px; /* Optional for rounded corners */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9); /* Box shadow for better appearance */
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.1); /* Scale the image */
+}
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgb(12, 11, 11);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+}
+.slider {
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.slider div h4 {
+  color: orangered;
+  font-size: 3em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.slider div img {
+  height: 50px;
+  width: 30%;
+}
+.head {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card-img {
+  overflow: hidden;
+  width: 100%;
+  max-height: 250px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.x {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.cover {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-gallery {
+  position: relative;
+}
+
+.gallery-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.gallery-controls button {
+  background: #000000;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.gallery-controls button:hover {
+  background: #1e1f1f;
+}
+.head{
+  color: #fff;
+}
+.prev-btn, .next-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.prev-btn {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1000px) {
+   .head h2, .x {
+    font-size: 3rem;
+   }
+   .project-main {
+    margin-top: 10px;
+   }
+   .dis, .play {
+    font-size: 1.5rem;
+   }
+}

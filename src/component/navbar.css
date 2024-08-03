@@ -1,0 +1,64 @@
+/* Existing CSS */
+.navbar-nav .nav-link {
+  color: white;
+  transition: color 0.3s ease;
+  margin-right: 2vw;
+  font-size: 3vw; 
+  font-size: 1.5vw; /* Default font size */
+}
+
+.navbar {
+  box-shadow: none !important;
+
+}
+
+.navbar-toggler-icon {
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgb(255, 97, 39);
+}
+
+.book {
+  border-radius: 20px !important;
+  border: 2px solid rgb(255, 97, 39) !important;
+  color: rgb(255, 97, 39) !important;
+  font-weight: 700 !important;
+}
+
+.book:hover {
+  color: white !important;
+  background-color: rgb(255, 97, 39) !important;
+}
+
+.navbar-nav .nav-link.act {
+  color: rgb(255, 97, 39);
+}
+
+#navbarNav {
+  background-color: transparent;
+  text-align: center;
+
+ transition: height 0.9s all;
+}
+
+
+#logo {
+  height: 100px; /* Using vw for logo height */
+  margin-left: 2vw; /* Using vw for margin */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 992px) {
+  .navbar-nav .nav-link {
+  font-size: 1.5vw;
+  }
+  .navbar.bg-black {
+    background-color: black;
+  }
+  
+}

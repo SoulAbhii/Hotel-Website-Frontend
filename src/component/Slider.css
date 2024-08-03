@@ -1,0 +1,65 @@
+/* Slider container */
+.slider-container {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  /* Slider heading */
+  .slider-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Adjust heading color */
+  }
+  
+  /* Slider description */
+  .slider-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #666; /* Adjust description color */
+  }
+  
+  /* Slider wrapper */
+  .slider-wrapper {
+    position: relative;
+  }
+  
+  /* Slide navigation arrows */
+  .simple-image-slider__arrow {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust arrow background color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .simple-image-slider__arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust hover background color */
+  }
+  
+  /* Slide bullets */
+  .simple-image-slider__bullets {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .simple-image-slider__bullet {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust bullet color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+  }
+  
+  .simple-image-slider__bullet:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust hover color */
+  }
+  
+  /* Slider images */
+  .simple-image-slider__image {
+    object-fit: cover;
+    border-radius: 10px;
+ 
+  }
+  

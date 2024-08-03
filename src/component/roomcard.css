@@ -1,0 +1,17 @@
+.cardWrap{
+   
+   
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+   
+}
+
+.cardWrapper{
+    padding: 30px 10% 30px 10%;
+    background-color: aliceblue;
+}
+

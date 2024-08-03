@@ -1,0 +1,56 @@
+
+.sub {
+    background-image: url('../../public/mount.jpg');
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    color: white;
+    position: relative;
+
+}
+.sub::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.403); /* Adjust the opacity here */
+}
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+ 
+}
+   
+
+
+.overlay-text h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.overlay-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.discon{
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 100px;
+    
+    
+}
+.discription{
+    width: 70%;
+    color: black
+    
+    
+    
+}
