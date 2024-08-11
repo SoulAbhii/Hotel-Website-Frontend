@@ -143,10 +143,10 @@ const BookPage = () => {
             const { id, currency, amount } = response.data;
 
             const options = {
-                key: 'rzp_live_JiMNkjPQGllrLi', // Replace with your actual Razorpay key ID
+                key: 'rzp_test_2yCKwCvsmmVI09',
                 amount: amount,
                 currency: currency,
-                name: 'Your Company Name',
+                name: 'Neo Resort',
                 description: 'Room Booking',
                 order_id: id,
                 handler: async function (response) {
