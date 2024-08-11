@@ -46,14 +46,13 @@ const BookPage = () => {
 
     const handleDateChange = (date, isCheckIn) => {
         const currentDate = new Date();
+    
         if (isCheckIn) {
-            if (date < currentDate) {
-                showNotification('Please select a future date for check-in.', 'error');
-            } else {
+         
                 setCheckInDate(date);
-            }
+                setCheckOutDate(null)
         } else {
-            if (date <= checkInDate) {
+            if (date < checkInDate) {
                 showNotification('Check-out date must be after check-in date.', 'error');
             } else {
                 setCheckOutDate(date);
@@ -61,22 +60,42 @@ const BookPage = () => {
         }
     };
 
-    const handleRoomTypeToggle = (type) => {
-        setSelectedRoomTypes((prev) => ({
-            ...prev,
-            [type]: !prev[type],
-        }));
-        if (!selectedRoomTypes[type]) {
-            setAdults((prev) => ({
-                ...prev,
-                [type]: rooms.find((room) => room.type === type)?.adult || 1,
-            }));
-            setChildren((prev) => ({
-                ...prev,
-                [type]: rooms.find((room) => room.type === type)?.child || 0,
-            }));
-        }
+    const handleRoomTypeToggle = (roomType) => {
+        setSelectedRoomTypes((prevSelectedRoomTypes) => {
+            const updatedSelectedRoomTypes = { ...prevSelectedRoomTypes };
+            
+            if (updatedSelectedRoomTypes[roomType]) {
+                // If the room is already selected, deselect it and reset the associated values
+                delete updatedSelectedRoomTypes[roomType];
+                setAdults((prevAdults) => {
+                    const updatedAdults = { ...prevAdults };
+                    delete updatedAdults[roomType];
+                    return updatedAdults;
+                });
+                setChildren((prevChildren) => {
+                    const updatedChildren = { ...prevChildren };
+                    delete updatedChildren[roomType];
+                    return updatedChildren;
+                });
+            } else {
+                // Otherwise, select the room and set default values (like 1 room selected)
+                updatedSelectedRoomTypes[roomType] = 1;
+    
+                // Set default values for adults and children
+                setAdults((prev) => ({
+                    ...prev,
+                    [roomType]: rooms.find((room) => room.type === roomType)?.adult || 1,
+                }));
+                setChildren((prev) => ({
+                    ...prev,
+                    [roomType]: rooms.find((room) => room.type === roomType)?.child || 0,
+                }));
+            }
+    
+            return updatedSelectedRoomTypes;
+        });
     };
+    
 
     const handleRoomChange = (type, value) => {
         const newValue = parseInt(value) > 0 ? parseInt(value) : 1;
@@ -212,9 +231,11 @@ const BookPage = () => {
 
     const totalCost = Object.keys(selectedRoomTypes).reduce((acc, type) => {
         if (selectedRoomTypes[type]) {
-            const room = rooms.find((room) => room.type === type);
-            const roomCost = room ? room.rentperday * selectedRoomTypes[type] : 0;
-            return acc + roomCost;
+            const roomDetails = rooms.find((room) => room.type === type);
+                const numRooms = selectedRoomTypes[type];
+                const rentPerDay = roomDetails.rentperday;
+                const days = checkOutDate && checkInDate ? Math.max((new Date(checkOutDate) - new Date(checkInDate)) / (1000 * 60 * 60 * 24), 0)+1 : 1;
+               return acc+ rentPerDay * numRooms * days;
         }
         return acc;
     }, 0);
@@ -250,7 +271,7 @@ const BookPage = () => {
                                     <DatePicker
                                         selected={checkOutDate}
                                         onChange={(date) => handleDateChange(date, false)}
-                                        minDate={checkInDate || new Date()}
+                                        minDate={checkInDate || new Date()} // Ensures check-out date is after check-in date
                                         className="form-control"
                                         dateFormat="yyyy-MM-dd"
                                         placeholderText="Select Check-Out Date"
@@ -269,13 +290,13 @@ const BookPage = () => {
                                     <p>Max Adults: {room.adult}</p>
                                     <p>Max Children: {room.child}</p>
                                     <div className="form-check">
-                                        <input
-                                            type="checkbox"
-                                            className="form-check-input"
-                                            id={`roomType-${room.type}`}
-                                            checked={selectedRoomTypes[room.type] || false}
-                                            onChange={() => handleRoomTypeToggle(room.type)}
-                                        />
+                                    <input
+                                     type="checkbox"
+                                      className="form-check-input"
+                                      id={`roomType-${room.type}`}
+                                      checked={selectedRoomTypes[room.type]}
+                                      onChange={() => handleRoomTypeToggle(room.type)}
+                                       />
                                         <label className="form-check-label" htmlFor={`roomType-${room.type}`}>
                                             Select {room.type}
                                         </label>
@@ -364,21 +385,38 @@ const BookPage = () => {
                             </div>
                         </div>
                         <div className="card mt-4">
-                            <div className="card-body">
-                                <h4 className="card-title">Booking Summary</h4>
-                                <ul>
-                                    {Object.keys(selectedRoomTypes).map((type) => (
-                                        selectedRoomTypes[type] && (
-                                            <li key={type}>
-                                                {type}: {selectedRoomTypes[type]} room(s) for ₹{rooms.find((room) => room.type === type).rentperday} per day
-                                            </li>
-                                        )
-                                    ))}
-                                </ul>
-                                <p>Total Cost: ₹{totalCost}</p>
-                                <button className="btn btn-primary mt-3" onClick={handlePayment}>Book Now</button>
-                            </div>
-                        </div>
+    <div className="card-body">
+        <h4 className="card-title">Booking Summary</h4>
+        <ul>
+            {Object.keys(selectedRoomTypes).map((type) => {
+                const roomDetails = rooms.find((room) => room.type === type);
+                const numRooms = selectedRoomTypes[type];
+                const rentPerDay = roomDetails.rentperday;
+                const days = checkOutDate && checkInDate ? Math.max((new Date(checkOutDate) - new Date(checkInDate)) / (1000 * 60 * 60 * 24), 0)+1 : 1;
+                const totalRoomCost = rentPerDay * numRooms * days;
+
+                return (
+                    <li key={type} className="mb-3">
+                        <strong>{type}:</strong>
+                        <p>Rooms: {numRooms}</p>
+                        <p>Rent per Day: ₹{rentPerDay}</p>
+                        <p>Number of Days: {days}</p>
+                        <p><strong>Total Cost for this Room: ₹{totalRoomCost}</strong></p>
+                    </li>
+                );
+            })}
+        </ul>
+        <p><strong>Grand Total: ₹{Object.keys(selectedRoomTypes).reduce((acc, type) => {
+            const roomDetails = rooms.find((room) => room.type === type);
+            const numRooms = selectedRoomTypes[type];
+            const rentPerDay = roomDetails.rentperday;
+            const days = checkOutDate && checkInDate ? Math.max((new Date(checkOutDate) - new Date(checkInDate)) / (1000 * 60 * 60 * 24), 0)+1 : 1;
+            return acc + (rentPerDay * numRooms * days);
+        }, 0)}</strong></p>
+        <button className="btn btn-primary mt-3" onClick={handlePayment}>Book Now</button>
+    </div>
+</div>
+
                     </div>
                 </div>
             </div>
