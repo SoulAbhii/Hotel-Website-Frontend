@@ -154,6 +154,16 @@ export default function RecipeReviewCard() {
         
       ))}
       </div>
+      <div className="banner">
+        <div className="info-room">
+              <p>Elevate Your Escape with Scenic Mountain & Valley Packages</p>
+              <a href="https://wa.me/919811383188">
+              <button className="whatsapp-btn"><div>Connect With Whatsapp
+               <FontAwesomeIcon icon={faWhatsapp} className="fa-icon"/></div>
+              </button> 
+              </a>
+        </div>
+      </div>
     
     </div>
   );

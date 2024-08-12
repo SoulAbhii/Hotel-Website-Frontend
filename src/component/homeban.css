@@ -1,0 +1,42 @@
+.home-ban{
+    /* background-color: orangered; */
+    background: url('../../public/bn.png');
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    padding: 60px;
+    height: 30vh;
+}
+.home-ban .ban-img video{
+    border-radius: 10px;
+}
+.ban-img{
+    height: 200px;
+    width: 500px;
+    /* background-color: aqua; */
+}
+.ban-detail{
+    /* background-color: black; */
+    color: white;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    .home-ban {
+        flex-direction: column; /* Stack items vertically */
+        padding: 20px; /* Reduce padding */
+        height: auto; /* Let the height adjust based on content */
+    }
+
+    .ban-img {
+        width: 100%; /* Make the image full width */
+        height: auto; /* Adjust height based on the width */
+        max-width: 100%; /* Prevent the image from overflowing */
+    }
+
+    .ban-detail {
+        margin-top: 20px; /* Add some space between the image and text */
+        text-align: center; /* Center the text */
+    }
+}

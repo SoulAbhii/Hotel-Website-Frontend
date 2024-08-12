@@ -6,7 +6,7 @@ export default function Landing() {
         <div className='landing'>
             <Navbar />
             <div className="content slideUp">
-                <h1>Welcome to Neo Resort</h1>
+                <h1>Welcome to <span style={{color:'orangered'}}>Neo Resort</span></h1>
                 <p>Explore the beauty of nature with us!</p>
             </div>
         </div>

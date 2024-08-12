@@ -2,8 +2,7 @@
 .navbar-nav .nav-link {
   color: white;
   transition: color 0.3s ease;
-  margin-right: 2vw;
-  font-size: 3vw; 
+  margin-right: 2vw; 
   font-size: 1.5vw; /* Default font size */
 }
 
@@ -24,7 +23,7 @@
 }
 
 .book {
-  border-radius: 20px !important;
+  border-radius: 25px !important;
   border: 2px solid rgb(255, 97, 39) !important;
   color: rgb(255, 97, 39) !important;
   font-weight: 700 !important;

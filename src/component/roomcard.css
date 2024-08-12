@@ -1,17 +1,105 @@
 .cardWrap{
    
-   
+    padding: 40px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    align-items: center;
-    border-radius: 10px;
     justify-content: center;
+    border-radius: 10px;
+    
    
 }
 
-.cardWrapper{
-    padding: 30px 10% 30px 10%;
-    background-color: aliceblue;
+.banner{
+    background-image: url('../../public/banner.webp');
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    position: relative;
 }
 
+.info-room{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.whatsapp-btn{
+  
+    color: white;
+    background-color: orangered;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    width: 400px;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+.whatsapp-btn .fa-icon{
+    
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    
+}
+
+.info-room p{
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    /* border-radius: 10px; */
+    
+}
+
+@media (max-width: 768px) {
+    .info-room{
+        width: 80%;
+    }
+    .banner {
+            background-color: grey;
+            height: 400px;
+            width: 100%;
+            /* border-radius: 20px; */
+            position: relative;
+        }
+    
+        .banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            /* border-radius: 20px; */
+            position: absolute;
+    
+        }
+        .whatsapp-btn .fa-icon {
+            font-size: 15px;
+            color: white;
+        }
+
+     .whatsapp-btn {
+        width: 150px;
+        font-size: 12px;
+        border-radius: 12px;
+        /* border-radius: 10px; */
+     }   
+
+
+     
+
+
+    .info-room p {
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+
+}

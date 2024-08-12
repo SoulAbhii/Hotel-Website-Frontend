@@ -1,19 +1,22 @@
-import React, { useEffect, useRef } from "react";
-import SimpleImageSlider from "react-simple-image-slider";
-import TreeScene from "../asset/Tree_scene.jpg";
-import Room1 from "../asset/Room3.jpg";
-import Room2 from "../asset/Room4.jpg";
-import Wash2 from "../asset/wash3.jpg";
+import React, { useState } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import sliderImage from "../asset/slider1.webp";
+import sliderSecond from "../asset/slider2.webp";
+import sliderThird from "../asset/slider3.webp";
+import sliderForth from '../asset/slider4.webp';
+import sliderFifth from '../asset/slider5.webp';
+import sliderSix from '../asset/slider6.webp';
+
+
 import "./Slider.css"; // Import custom CSS file for styling
 
-const images = [
-  { url: TreeScene },
-  { url: Room1 },
-  { url: Room2 },
-  { url: Wash2 }
-];
+function Slider() {
+  const [index, setIndex] = useState(0);
 
-const Slider = () => {
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
   return (
     <div className="slider-container">
       <h1 className="slider-heading">Welcome to Neo Resort</h1>
@@ -26,21 +29,55 @@ const Slider = () => {
         want to enhance your staying experience, then Neo Resort is the best
         option you can opt for.
       </p>
-      <div className="slider-wrapper " style={{display: "flex",justifyContent:"center"}}>
-        <SimpleImageSlider
-          width={"70%"}
-          height={"500px"}
-          images={images}
-          showBullets={true}
-          showNavs={true}
-          slideDuration={0.5} // Animation duration in seconds
-          navSize={50} // Size of the navigation arrows
-          navMargin={30} // Margin of the navigation arrows
-        />
+      <div className='wrapper'>
+      <Carousel data-bs-theme="dark" activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderImage}s
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderSecond}
+            alt="Second slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderThird}
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderForth}
+            alt="Third forth"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderFifth}
+            alt="Third fifth"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={sliderSix}
+            alt="Third six"
+          />
+        </Carousel.Item>
+      </Carousel>
       </div>
+
     </div>
   );
-};
+}
 
 export default Slider;
-

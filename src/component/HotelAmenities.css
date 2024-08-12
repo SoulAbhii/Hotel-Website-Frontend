@@ -5,10 +5,7 @@
   padding: 20px;
 }
 
-.amenities-heading {
-  font-size: 3rem; /* Increase heading font size for emphasis */
 
-}
 
 .amenities-list {
   list-style-type: none;
@@ -16,7 +13,6 @@
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 20px;
- 
 }
 
 .icon{
@@ -27,4 +23,29 @@
 .icon:hover {
   transform: scale(1.1); /* Scale the icon to 1.1 times on hover */
 }
+.ex-rooms{
+  text-align: center;
+}
+.pack-card{
+  /* background-color: orangered; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pack-wrap{
+  width: 60%;
+  margin-top: 40px;
+}
 
+
+.ex-rooms-img{
+  height: 200px;
+  object-fit: cover;
+ 
+
+}
+
+.pack-card{
+  cursor: pointer;
+  
+}

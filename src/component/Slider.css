@@ -18,48 +18,20 @@
     margin-bottom: 40px;
     color: #666; /* Adjust description color */
   }
+.wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   
-  /* Slider wrapper */
-  .slider-wrapper {
-    position: relative;
-  }
+
   
-  /* Slide navigation arrows */
-  .simple-image-slider__arrow {
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust arrow background color */
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .simple-image-slider__arrow:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust hover background color */
-  }
-  
-  /* Slide bullets */
-  .simple-image-slider__bullets {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .simple-image-slider__bullet {
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust bullet color */
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 5px;
-  }
-  
-  .simple-image-slider__bullet:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust hover color */
-  }
-  
-  /* Slider images */
-  .simple-image-slider__image {
-    object-fit: cover;
-    border-radius: 10px;
  
+ 
+  .carousel img {
+    height: 600px; /* Set a fixed height for the images */
+    width: 100%;
+    object-fit: contain; /* Ensures the images cover the space without stretching */
   }
   
