@@ -1,9 +1,42 @@
 .Book-page nav{
     background-color: rgb(51, 51, 51);
     
-}/* Book.css */
+}
+/* Hide the default checkbox */
+.form-check-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4CAF50; /* Change border color */
+    border-radius: 4px; /* Make it square with rounded corners */
+    outline: none;
+    cursor: pointer;
+}
 
-/* General styles */
+/* Style the checked state */
+.form-check-input:checked {
+    background-color: #4CAF50; /* Change the background color when checked */
+    border-color: #4CAF50;
+    position: relative;
+}
+
+/* Add a checkmark */
+.form-check-input:checked::before {
+    content: '✓'; /* Add a checkmark */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Change checkmark color */
+    font-size: 16px; /* Adjust size as needed */
+}
+
 .book-page {
     font-family: Arial, sans-serif;
   object-fit: cover;

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { TextField, Button, Container, Typography } from '@mui/material';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LoginPage = ({ onLogin }) => {
     const [username, setUsername] = useState('');
@@ -16,39 +19,58 @@ const LoginPage = ({ onLogin }) => {
                 password
             });
 
-            console.log('Login successful:', response.data);
+            Swal.fire({
+                icon: 'success',
+                title: 'Login successful',
+                text: 'You are being redirected to the admin dashboard.',
+                timer: 1500,
+                showConfirmButton: false,
+            });
+
             setError('');
             onLogin();
             navigate('/admin');
         } catch (error) {
             console.error('Login error:', error.response ? error.response.data : error.message);
             setError('Invalid credentials');
-            alert('Invalid credentials. Please try again.');
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Login failed',
+                text: 'Invalid credentials. Please try again.',
+            });
         }
     };
 
     return (
-        <div>
-            <h1>Admin Login</h1>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="text"
+        <Container className="d-flex flex-column align-items-center justify-content-center" style={{ height: '100vh' }}>
+            <Typography variant="h4" gutterBottom>Admin Login</Typography>
+            <form onSubmit={handleLogin} className="w-50">
+                <TextField
+                    label="Username"
+                    variant="outlined"
+                    fullWidth
+                    margin="normal"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
                     required
                 />
-                <input
+                <TextField
+                    label="Password"
+                    variant="outlined"
                     type="password"
+                    fullWidth
+                    margin="normal"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
                     required
                 />
-                <button type="submit">Login</button>
+                <Button type="submit" variant="contained" color="primary" fullWidth>
+                    Login
+                </Button>
             </form>
-            {error && <p>{error}</p>}
-        </div>
+            {error && <Typography color="error" variant="body2">{error}</Typography>}
+        </Container>
     );
 };
 
